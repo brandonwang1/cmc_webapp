@@ -3,3 +3,10 @@ Flask
 gevent
 pillow
 h5py
+tqdm
+scikit-image
+tensorflow-gpu
+numpy
+matplotlib
+scipy
+imageio

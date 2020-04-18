@@ -1,32 +1,59 @@
 {% extends "base.html" %} {% block content %}
 
-<div class="main">
-  <div class="title">
-    <h3>Image Classifier</h3>
-    <!-- <p>
-      <small>A web app demo</small>
-    </p> -->
-  </div>
+    <div class="main">
+        <div class="title">
+            <h3>Cardiomyocyte Nuclear Identification</h3>
+            <h4 style="text-align: center;">As described in: Deep Learning Identifies Cardiomyocyte Nuclei in Murine Tissue with High Precision</h4>
+            <h4 style="text-align: center;">Made by&nbsp;Hesham Sadek and MAIA Labs</h4>
 
-  <div class="panel">
-    <input id="file-upload" class="hidden" type="file" accept="image/x-png,image/gif,image/jpeg" />
-    <label for="file-upload" id="file-drag" class="upload-box">
-      <div id="upload-caption">Drop image here or click to select</div>
-      <img id="image-preview" class="hidden" />
-    </label>
-  </div>
-  <div style="margin-bottom: 2rem;">
-    <input type="button" value="Submit" class="button" onclick="submitImage();" />
-    <input type="button" value="Clear" class="button" onclick="clearImage();" />
-  </div>
+        </div>
+        <div class="instructions">
+            <p>We generated an artificial intelligence (AI) deep learning model that uses image segmentation to predict
+                cardiomyocyte nuclei in mouse heart sections without a specific cardiomyocyte nuclear label.1 This tool
+                can annotate cardiomyocytes with high sensitivity and specificity (AUC 0.94) using only cardiomyocyte
+                structural protein immunostaining and a global nuclear stain.</p>
+            <p>To use this model to identify cardiomyocyte nuclei in tissue sections, please follow the instructions
+                below. The data that the model generates will include total number of nuclei in the images, total number
+                of cardiomyocyte nuclei, and an AI-generated image in which the cardiomyocyte nuclei will be
+                identified.</p>
+            <ul>
+                <li>8 &mu;m thick mouse heart sections</li>
+                <li>20x zoom image</li>
+                <li>One channel with DAPI stain and one channel with troponin T (TnT) stain<span
+                        style="color: #ff0000;"> (tool validated with Thermo Scientific MS-295-P mouse Troponin T antibody)</span>
+                </li>
+                <li>Jpeg or tiff files only</li>
+            </ul>
+        </div>
+        <div class="panel">
+            <input id="file-upload" class="hidden" type="file" accept="image/x-png,image/gif,image/jpeg"/>
+            <label for="file-upload" id="file-drag" class="upload-box">
+                <div id="upload-caption">Upload DAPI</div>
+                <img id="image-preview" class="hidden"/>
+            </label>
+        </div>
 
-  <div id="image-box">
-    <img id="image-display" />
-    <div id="pred-result" class="hidden"></div>
-    <svg id="loader" class="hidden" viewBox="0 0 32 32" width="32" height="32">
-      <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
-    </svg>
-  </div>
-</div>
+                <div class="panel">
+            <input id="file-upload" class="hidden" type="file" accept="image/x-png,image/gif,image/jpeg"/>
+            <label for="file-upload" id="file-drag" class="upload-box">
+                <div id="upload-caption">Upload TnT </div>
+                <img id="image-preview" class="hidden"/>
+            </label>
+        </div>
+
+        <div style="margin-bottom: 2rem;">
+            <input type="button" value="Submit" class="button" onclick="submitImage();"/>
+            <input type="button" value="Clear" class="button" onclick="clearImage();"/>
+
+        </div>
+
+        <div id="image-box">
+            <img id="image-display"/>
+            <div id="pred-result" class="hidden"></div>
+            <svg id="loader" class="hidden" viewBox="0 0 32 32" width="32" height="32">
+                <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+            </svg>
+        </div>
+    </div>
 
 {% endblock %}
