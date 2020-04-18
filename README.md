@@ -14,7 +14,7 @@ To use this model to identify cardiomyocyte nuclei in tissue sections, please fo
 * 8 μm thick mouse heart sections
 * 20x zoom image
 * One channel with DAPI stain and one channel with troponin T (TnT) stain (tool validated with Thermo Scientific MS-295-P mouse Troponin T antibody)
-* Jpeg or tiff files only
+* Jpeg or tiff files only. Upload them to the data directory or specify a directory of your choice.
 
 ```shell
 # 1. First, download/clone the repo
