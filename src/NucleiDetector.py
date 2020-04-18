@@ -28,9 +28,9 @@ class NucleiDetector:
         # troponin female threshold= 0.05
 
         # the curve is less sensitive on the right side of these numbers so im currently having 0.1 as my test value
+        self.datafile = {}
         self.threshold = 0.108
 
-    def load_model(self):
         self.model = unet(data_shape=(256, 256),
                           channels_in=2,
                           channels_out=1,
@@ -53,7 +53,7 @@ class NucleiDetector:
                           gn_param=32,
                           weight_constraint=None)
 
-        self.model.load_weights('results/best_weights_1.hdf5')
+        self.model.load_weights('src/results/best_weights_1.hdf5')
 
     def load_images(self, datadir=None, nuclei=None, tissue=None):
         # other necessary data
@@ -235,24 +235,22 @@ class NucleiDetector:
         return cmcount, nucleicount
 
     def predict(self):
-        print('Accessing', datafile)
-        data = read_image_data(datadir=datadir, datafile=datafile)
+        print('Accessing', self.datafile)
+        data = self.read_image_data(datadir=self.datadir, datafile=self.datafile)
 
         print('Optimizing k')
         xcen = int(data.shape[0] / 2)
         ycen = int(data.shape[1] / 2)
         print('Image center is ', xcen, ycen)
         s = 1024
-        k = optimize_k(data[xcen - s:xcen + s, ycen - s:ycen + s, :])
+        k = self.optimize_k(data[xcen - s:xcen + s, ycen - s:ycen + s, :])
 
         print('k = ', k)
 
         print('Predicting cardiomyocytes')
-        pmask = predict_cm(data, model)
+        pmask = self.predict_cm(data, self.model)
 
         print('Analyzing Data')
-        cmcount, nucleicount = count_cm_and_nuclei(data, pmask, threshold, mode='slow')
+        cmcount, nucleicount = self.count_cm_and_nuclei(data, pmask, self.threshold, mode='slow')
 
         print(cmcount, nucleicount)
-
-# In[3]:
