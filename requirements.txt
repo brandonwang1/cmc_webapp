@@ -1,0 +1,5 @@
+Werkzeug
+Flask
+gevent
+pillow
+h5py
