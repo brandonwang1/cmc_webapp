@@ -55,11 +55,11 @@ class NucleiDetector:
 
         self.model.load_weights('src/results/best_weights_1.hdf5')
 
-    def load_images(self, datadir=None, nuclei=None, tissue=None):
+    def load_images(self, datadir, nuclei, tissue):
         # other necessary data
-        self.datadir = 'raw/test/alpha actinin tissue stain'
-        self.datafile['nuclei'] = '5-S1-right-Cre-a-actinin-20x-overlay-stitch_RGB_DAPI.tif'
-        self.datafile['tissue'] = '5-S1-right-Cre-a-actinin-20x-overlay-stitch_RGB_FITC.tif'
+        self.datadir = datadir  # 'raw/test/alpha actinin tissue stain'
+        self.datafile['nuclei'] = nuclei  # '5-S1-right-Cre-a-actinin-20x-overlay-stitch_RGB_DAPI.tif'
+        self.datafile['tissue'] = tissue  # '5-S1-right-Cre-a-actinin-20x-overlay-stitch_RGB_FITC.tif'
 
     def read_image_data(self, datadir, datafile):
         # this assumes that the file being loaded have 3 dimensions: first 2 dimensions of the data are the image itself
@@ -253,4 +253,4 @@ class NucleiDetector:
         print('Analyzing Data')
         cmcount, nucleicount = self.count_cm_and_nuclei(data, pmask, self.threshold, mode='slow')
 
-        print(cmcount, nucleicount)
+        return cmcount, nucleicount
