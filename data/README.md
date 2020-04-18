@@ -1,0 +1,1 @@
+Upload your tiff/image files to this folder.
