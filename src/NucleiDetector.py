@@ -57,7 +57,7 @@ class NucleiDetector:
 
     def load_images(self, datadir, nuclei, tissue):
         # other necessary data
-        self.datadir = datadir  # 'raw/test/alpha actinin tissue stain'
+        self.datadir = datadir  # 'data/test/alpha actinin tissue stain'
         self.datafile['nuclei'] = nuclei  # '5-S1-right-Cre-a-actinin-20x-overlay-stitch_RGB_DAPI.tif'
         self.datafile['tissue'] = tissue  # '5-S1-right-Cre-a-actinin-20x-overlay-stitch_RGB_FITC.tif'
 
@@ -253,4 +253,4 @@ class NucleiDetector:
         print('Analyzing Data')
         cmcount, nucleicount = self.count_cm_and_nuclei(data, pmask, self.threshold, mode='slow')
 
-        return cmcount, nucleicount
+        return cmcount, nucleicount, pmask

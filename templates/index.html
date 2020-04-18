@@ -27,45 +27,55 @@
             </ul>
         </div>
 
-        <form>
-            <label for="fname">Path to Data Dir:</label>
-            <input type="text" id="filePath" name="filePath" value="raw/test/alpha actinin tissue stain"><br><br>
-            <label for="fname">DAPI Stain File:</label>
-            <input type="text" id="DAPIPath" name="DAPIPath" value="5-S1-right-Cre-a-actinin-20x-overlay-stitch_RGB_DAPI.tif"><br><br>
-            <label for="lname">TnT Stain File:</label>
-            <input type="text" id="TnTPath" name="TnTPath" value="5-S1-right-Cre-a-actinin-20x-overlay-stitch_RGB_FITC.tif"><br><br>
-        </form>
+        <div id="uploadDiv">
+            <form>
+                <label for="fname">Path to Data Dir:</label>
+                <input type="text" id="filePath" name="filePath" value="data"><br><br>
+                <label for="fname">DAPI Stain File:</label>
+                <input type="text" id="DAPIPath" name="DAPIPath"
+                       value="5-S1-right-Cre-a-actinin-20x-overlay-stitch_RGB_DAPI.tif"><br><br>
+                <label for="lname">TnT Stain File:</label>
+                <input type="text" id="TnTPath" name="TnTPath"
+                       value="5-S1-right-Cre-a-actinin-20x-overlay-stitch_RGB_FITC.tif"><br><br>
+            </form>
 
-        {#        <div class="panel">#}
-        {#            <input id="file-upload-DAPI" class="hidden" type="file" accept="image/x-png,image/gif,image/jpeg"/>#}
-        {#            <label for="file-upload-DAPI" id="file-drag" class="upload-box">#}
-        {#                <div id="upload-caption">Upload DAPI</div>#}
-        {#                <img id="image-preview" class="hidden"/>#}
-        {#            </label>#}
-        {#        </div>#}
-        {##}
-        {#        <div class="panel">#}
-        {#            <input id="file-upload-TnT" class="hidden" type="file" accept="image/x-png,image/gif,image/jpeg"/>#}
-        {#            <label for="file-upload-TnT" id="file-drag" class="upload-box">#}
-        {#                <div id="upload-caption">Upload TnT</div>#}
-        {#                <img id="image-preview" class="hidden"/>#}
-        {#            </label>#}
-        {#        </div>#}
+            {#        <div class="panel">#}
+            {#            <input id="file-upload-DAPI" class="hidden" type="file" accept="image/x-png,image/gif,image/jpeg"/>#}
+            {#            <label for="file-upload-DAPI" id="file-drag" class="upload-box">#}
+            {#                <div id="upload-caption">Upload DAPI</div>#}
+            {#                <img id="image-preview" class="hidden"/>#}
+            {#            </label>#}
+            {#        </div>#}
+            {##}
+            {#        <div class="panel">#}
+            {#            <input id="file-upload-TnT" class="hidden" type="file" accept="image/x-png,image/gif,image/jpeg"/>#}
+            {#            <label for="file-upload-TnT" id="file-drag" class="upload-box">#}
+            {#                <div id="upload-caption">Upload TnT</div>#}
+            {#                <img id="image-preview" class="hidden"/>#}
+            {#            </label>#}
+            {#        </div>#}
 
-        <div style="margin-bottom: 2rem;">
-            <input type="button" value="Submit" class="button" onclick="submitPaths();"/>
-            <input type="button" value="Clear" class="button" onclick="clearPaths();"/>
+            <div style="margin-bottom: 2rem;">
+                <input type="button" value="Submit" class="button" onclick="submitPaths();"/>
+                <input type="button" value="Clear" class="button" onclick="clearPaths();"/>
 
+            </div>
         </div>
 
-        <div id="image-box">
-            <img id="image-display-DAPI"/>
-            <img id="image-display-TnT"/>
-            <div id="pred-result" class="hidden"></div>
-            <svg id="loader" class="hidden" viewBox="0 0 32 32" width="32" height="32">
-                <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
-            </svg>
+        <div id="resultsDiv" class="hidden">
+            <h2 style="text-align: center;">Results </h2>
+            <h4 id="cmcount">Total number of nuclei: </h4>
+            <h4 id="nucleicount">Total number of myocyte nuclei: </h4>
+
+            <div style="margin-bottom: 2rem; text-align: center;">
+                <input type="button" value="Download AI Image" class="button" onclick=""/>
+            </div>
         </div>
+
+    </div>
+
+
+
 
     </div>
 

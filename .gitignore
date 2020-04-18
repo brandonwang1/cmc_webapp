@@ -28,5 +28,4 @@ models/*
 
 !uploads/README.md
 !models/README.md
-/raw/
-/src/results/
+/data/

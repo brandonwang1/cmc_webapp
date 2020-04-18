@@ -38,6 +38,7 @@ var imageDisplayTnT = document.getElementById("image-display-TnT");
 var uploadCaption = document.getElementById("upload-caption");
 var predResult = document.getElementById("pred-result");
 var loader = document.getElementById("loader");
+var resultsDiv = document.getElementById("resultsDiv");
 
 
 //========================================================================
@@ -161,6 +162,7 @@ function predictImage(image) {
             if (resp.ok)
                 resp.json().then(data => {
                     displayResult(data);
+                    console.log("results should have displayed")
                 });
         })
         .catch(err => {
@@ -179,9 +181,17 @@ function displayImage(image, id) {
 function displayResult(data) {
     // display the result
     // imageDisplay.classList.remove("loading");
-    hide(loader);
-    predResult.innerHTML = data.result;
-    show(predResult);
+    // hide(loader);
+    const cmcount = document.getElementById("cmcount");
+    const nucleicount = document.getElementById("nucleicount");
+    resultsDiv = document.getElementById("resultsDiv");
+    const uploadDiv = document.getElementById("uploadDiv");
+
+    cmcount.innerHTML += data["cmcount"].toString();
+    nucleicount.innerHTML += data["nucleicount"].toString();
+
+    show(resultsDiv);
+    hide(uploadDiv);
 }
 
 function hide(el) {
