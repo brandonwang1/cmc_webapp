@@ -2,9 +2,9 @@
 
 
 
-> As described in: Deep Learning Identifies Cardiomyocyte Nuclei in Murine Tissue with High Precision
+> As described in: [Deep Learning Identifies Cardiomyocyte Nuclei in Murine Tissue with High Precision](https://www.biorxiv.org/content/10.1101/2020.01.10.900936v2.full.pdf)
 >
-> Made by Hesham Sadek and MAIA Labs
+> Made by Brandon Wang, Hesham Sadek and MAIA Labs
 
 
 We generated an artificial intelligence (AI) deep learning model that uses image segmentation to predict cardiomyocyte nuclei in mouse heart sections without a specific cardiomyocyte nuclear label. This tool can annotate cardiomyocytes with high sensitivity and specificity (AUC 0.94) using only cardiomyocyte structural protein immunostaining and a global nuclear stain.
