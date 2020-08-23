@@ -29,3 +29,5 @@ $ python app.py
 ```
 
 Open http://localhost:5000 to see the web interface.
+
+Built with: Python, Tensorflow, Flask
